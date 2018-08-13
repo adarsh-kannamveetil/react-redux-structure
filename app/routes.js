@@ -33,12 +33,22 @@ export default function createRoutes(store) {
       name: 'dashboard',
       // onEnter: requireAuth,
       getComponent(nextState, cb) {
-        System.import('containers/Dashboard')
-                  .then(loadModule(cb))
-                  .catch(errorLoading);
+        const importModules = Promise.all([
+          import('containers/Dashboard/reducer'),
+          import('containers/Dashboard/sagas'),
+          import('containers/Dashboard'),
+        ]);
+        const renderRoute = loadModule(cb);
+        importModules.then(([reducer, sagas, component]) => {
+          injectReducer('homeReducer', reducer.default);
+          injectSagas(sagas.default);
+
+          renderRoute(component);
+        });
+
+        importModules.catch(errorLoading);
       },
     },
-
     {
       path: '*',
       name: 'notfound',

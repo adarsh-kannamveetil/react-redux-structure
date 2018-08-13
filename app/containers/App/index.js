@@ -26,10 +26,10 @@ export function App(props) {
   return (
     <AppWrapper>
       <Helmet
-        titleTemplate="%s - Resto"
-        defaultTitle="Resto partner app"
+        titleTemplate="%s - React"
+        defaultTitle="React first app"
         meta={[
-            { name: 'partner app', content: 'Resto' },
+            { name: 'first app', content: 'React' },
         ]}
       />
       {React.Children.toArray(props.children)}

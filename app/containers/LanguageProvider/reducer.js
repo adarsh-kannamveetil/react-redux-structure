@@ -14,7 +14,7 @@ import {
 } from '../App/constants'; // eslint-disable-line
 
 const initialState = fromJS({
-  locale: DEFAULT_LOCALE,
+  locale: DEFAULT_LOCALE ? DEFAULT_LOCALE: 'en',
 });
 
 function languageProviderReducer(state = initialState, action) {
