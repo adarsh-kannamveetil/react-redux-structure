@@ -11,7 +11,7 @@ import languageProviderReducer from 'containers/LanguageProvider/reducer';
 // import globalReducer from 'containers/App/reducer';
 import homeReducer from 'containers/Dashboard/reducer';
 
-import { reducer as notifications } from 'react-notification-system-redux';
+// import { reducer as notifications } from 'react-notification-system-redux';
 
 /*
  * routeReducer
@@ -50,7 +50,7 @@ export default function createReducer(asyncReducers) {
     // global: globalReducer,
     home: homeReducer,
     language: languageProviderReducer,
-    notifications,
+    // notifications,
     ...asyncReducers,
   });
 }

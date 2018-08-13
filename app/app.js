@@ -13,16 +13,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { applyRouterMiddleware, Router, browserHistory } from 'react-router';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+// import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { syncHistoryWithStore } from 'react-router-redux';
 import { useScroll } from 'react-router-scroll';
 import 'sanitize.css/sanitize.css';
 
 // Import root app
 import App from 'containers/App';
-import injectTapEventPlugin from 'react-tap-event-plugin';
+// import injectTapEventPlugin from 'react-tap-event-plugin';
 
-injectTapEventPlugin();
+// injectTapEventPlugin();
 
 // Import selector for `syncHistoryWithStore`
 import { makeSelectLocationState } from 'containers/App/selectors';
@@ -75,7 +75,6 @@ const rootRoute = {
 const render = (messages) => {
   ReactDOM.render(
     <Provider store={store}>
-      <MuiThemeProvider>
         <LanguageProvider messages={messages}>
           <Router
             history={history}
@@ -87,7 +86,6 @@ const render = (messages) => {
           }
           />
         </LanguageProvider>
-      </MuiThemeProvider>
     </Provider>,
     document.getElementById('app')
   );
